@@ -1,0 +1,46 @@
+﻿<Window x:Class="KKU_Kutuphane.anaForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Kırıkkale Üniversitesi Kütüphane Yönetim Sistemi" Height="720" Width="1024" MinHeight="720" MinWidth="1024" Icon="/images/book_logo.png">
+    <Grid>
+        <!-- Ana Grid -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <!-- Sol Menü -->
+            <ColumnDefinition Width="*" />
+            <!-- İçerik -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Sol Menü -->
+        <Border Background="#272B2F" CornerRadius="8,8,8,8" Padding="10">
+            <StackPanel>
+
+                <!-- Logo -->
+                <Image x:Name="img_kullanici" Source="/images/kkuLogo.png" Height="84" Margin="0,20,0,20" />
+
+                <!-- Kullanıcı Bilgisi -->
+                <Label x:Name="txt_adSoyad" Content="Ad-Soyad" Foreground="White" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20" />
+
+                <!-- Menü Butonları -->
+                <Button x:Name="btnKitaplarim" Content="Kitaplarım" Background="#FF212529" Foreground="White" Margin="0,5" Padding="10"  Cursor="Hand" Click="btnKitaplarim_Click" MouseUp="btnKitaplarim_MouseUp" FontSize="14"  />
+                <Button x:Name="btnRaporlama" Content="Raporlama" Background="#FF212529" Foreground="White" Margin="0,5" Padding="10"  Cursor="Hand" Click="btnRaporlama_Click" MouseUp="btnRaporlama_MouseUp" FontSize="14" />
+                <Button x:Name="btnKitapTeslimEt" Content="Kitap Teslim Et" Background="#FF212529" Foreground="White" Margin="0,5" Padding="10"  Cursor="Hand" Click="btnKitapTeslimEt_Click" FontSize="14" />
+                <Button x:Name="btnKitapTeslimAl" Content="Kitap Teslim Al" Background="#FF212529" Foreground="White" Margin="0,5" Padding="10"  Cursor="Hand" Click="btnKitapTeslimAl_Click" FontSize="14" />
+                <Button x:Name="btnKitapYonetimi" Content="Kitap Yönetimi" Background="#FF212529" Foreground="White" Margin="0,5" Padding="10"  Cursor="Hand" Click="btnKitapYonetimi_Click" FontSize="14" />
+                <Button x:Name="btnKullaniciYonetimi" Content="Kullanıcı Yönetimi" Background="#FF212529" Foreground="White" Margin="0,5" Padding="10"  Cursor="Hand" Click="btnKullaniciYonetimi_Click" FontSize="14" />
+
+                <Button Content="Çıkış" Background="#FFCA1A28" Foreground="White" Margin="0,20,0,0" Padding="10" Click="Cikis_Click" Cursor="Hand" Width="60" Height="37" />
+            </StackPanel>
+        </Border>
+        <Frame Grid.Column="1" x:Name="ContentFrame" Background="White" NavigationUIVisibility="Hidden" />
+    </Grid>
+
+    <Window.Resources>
+
+
+
+    </Window.Resources>
+</Window>

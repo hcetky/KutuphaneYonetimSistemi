@@ -1,0 +1,114 @@
+﻿<Page x:Class="KKU_Kutuphane.teslimAlSayfa"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KKU_Kutuphane"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="784"
+      Title="Teslim Alma Sayfası"
+      Background="#FFF0F0F0"
+      FontFamily="Segoe UI">
+
+    <Page.Resources>
+        <!-- Genel Buton Stili -->
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#5C7AEA"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#4A69BD"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- DataGrid için stil -->
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="RowHeight" Value="35"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#DDD"/>
+            <Setter Property="BorderBrush" Value="#DDD"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="AlternatingRowBackground" Value="#F9F9F9"/>
+        </Style>
+
+        <!-- DataGrid Başlıkları -->
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#272B2F"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="#333"/>
+            <Setter Property="BorderThickness" Value="0 0 1 0"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+
+        <!-- DataGrid Hücreleri -->
+        <Style TargetType="DataGridCell">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderBrush" Value="#DDD"/>
+            <Setter Property="BorderThickness" Value="0 0 1 0"/>
+        </Style>
+
+        <!-- TextBlock için varsayılan stil -->
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#333"/>
+        </Style>
+    </Page.Resources>
+
+    <Viewbox Stretch="Uniform">
+        <Grid Width="784" Height="720" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Üstteki Butonlar -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
+                <Button Content="Kullanıcı Seç" Click="KullaniciSecButton_Click" Width="99"/>
+                <Button Content="Kitap Ekle" Click="KitapEkleButton_Click"/>
+            </StackPanel>
+
+            <!-- Orta Kısım -->
+            <StackPanel Grid.Row="1" Margin="5,5,5,5">
+                <TextBlock x:Name="secilenKullaniciText" FontWeight="Bold" FontSize="16" Foreground="#333" Margin="0,0,0,10"/>
+                <DataGrid x:Name="kitapDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,10,0,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Kitap Adı" Binding="{Binding KitapAdi}" Width="*" />
+                        <DataGridTextColumn Header="Yazar" Binding="{Binding Yazar}" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <!-- Alt Kısım Onay Butonu -->
+            <Button Content="Onayla" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Click="OnaylaButton_Click" Margin="0,10,0,0" Height="36"/>
+        </Grid>
+    </Viewbox>
+</Page>
